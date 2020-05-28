@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Link, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 import styled from "styled-components";
+import Nav from "./components/Nav";
 
 const Wrapper = styled.section`
   width: 100vw;
@@ -10,26 +11,12 @@ const Wrapper = styled.section`
 `;
 
 const Main = styled.main`
-  border: 1px solid green;
   flex-grow: 1;
   overflow: auto;
 `;
 
-const Nav = styled.nav`
-  ul {
-    display: flex;
-    > li {
-      text-align:center;
-      width: 33.33%;
-      padding-top: 19px;
-      padding-bottom: 19px;
-    }
-  }
-`;
-
 function App() {
   return (
-
       <Router>
         <Wrapper>
         <Main>
@@ -41,20 +28,7 @@ function App() {
           <Route path="*" component={NoMatch} />
         </Switch>
         </Main>
-        <Nav>
-          <ul>
-            <li>
-              <Link to="/tags">标签页面</Link>
-            </li>
-            <li>
-              <Link to="/money">记录页面</Link>
-            </li>
-            <li>
-              <Link to="/statistic">数据页面</Link>
-            </li>
-          </ul>
-        </Nav>
-
+        <Nav />
         </Wrapper>
       </Router>
   );
