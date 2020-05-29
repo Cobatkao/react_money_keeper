@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import React from "react";
 import Icon from "./Icon";
 
@@ -12,13 +12,22 @@ const NavWrapper = styled.nav`
       user-select: none;
       text-align:center;
       width: 33.33%;
-      padding: 4px 0;
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      .icon {
-        width: 24px;
-        height: 24px;
+      > a {
+      font-weight: bold;
+        padding: 4px 0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        &.selected {
+          color: #fdab0e;
+          svg {
+            fill: #fdab0e;
+          }
+        }
+        > .icon {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }
@@ -29,16 +38,13 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <Icon name="label" />
-                    <Link to="/tags">标签</Link>
+                    <NavLink to="/tags" activeClassName="selected"><Icon name="label" />标签</NavLink>
                 </li>
                 <li>
-                    <Icon name="money" />
-                    <Link to="/money">记录</Link>
+                    <NavLink to="/money" activeClassName="selected"><Icon name="money" />记录</NavLink>
                 </li>
                 <li>
-                    <Icon name="statistic" />
-                    <Link to="/statistic">数据</Link>
+                    <NavLink to="/statistic" activeClassName="selected"><Icon name="statistic" />数据</NavLink>
                 </li>
             </ul>
         </NavWrapper>

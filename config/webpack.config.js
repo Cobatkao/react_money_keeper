@@ -358,7 +358,8 @@ module.exports = function(webpackEnv) {
                     plugins: [
                       {removeTitle: true},
                       {convertColors: {shorthex: false}},
-                      {convertPathData: false}
+                      {convertPathData: false},
+                      {removeAttrs: {attrs: 'fill'}}
                     ]
                   }
                 }
